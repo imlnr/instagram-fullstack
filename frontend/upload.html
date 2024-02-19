@@ -15,5 +15,20 @@
     <input type="text" name="device" id="device" placeholder="Enter your device type">
     <input type="text" name="comments" id="comments" placeholder="comments">
     <button type="submit" onclick="handleSubmit()">Submit</button>
+    <script>
+        const handleSubmit =()=>{
+            const quote = document.getElementById('quote');
+            const photo = document.getElementById('photo');
+            const device = document.getElementById('device');
+            const commentsCount = document.getElementById('comments');
+            fetch('https://insta-server-9mhi.onrender.com/profile/upload',{
+                method:'POST',
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify()
+            })
+        }
+    </script>
 </body>
 </html>
