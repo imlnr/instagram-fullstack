@@ -26,7 +26,6 @@ const PictureSchema = mongoose.Schema({
         type: String,
         required: true
     }
-    // quote, photo, device,commentsCount, userID
 }, {
     versionKey: false
 })
