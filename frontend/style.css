@@ -1,0 +1,7 @@
+#nav{
+    display: flex;
+    gap: 20px;
+}
+#nav>span>a{
+    text-decoration: none;
+}

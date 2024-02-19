@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="nav">
+        <span><a href="./dashboard.html">Dashboard</a></span><span><a href="./login.html">Login</a></span><span><a href="./signup.html">Signup</a></span><span><a href="./upload.html">uploadimage</a></span>
+    </nav>
+    <br>
+    <input type="text" name="username" id="username" placeholder="Enter your name">
+    <input type="email" name="email" id="email" placeholder="enter your mail...">
+    <input type="text" name="password" id="password" placeholder="Enter pass..">
+    <input type="text" name="city" id="city" placeholder="City">
+    <input type="number" name="age" id="age" placeholder="enter your age">
+    <input type="text" name="gender" id="gender" placeholder="enter your gender">
+    <button type="submit" onclick="handlesignup()">Sign Up</button>
+    <script>
+        const handlesignup = ()=>{
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const city = document.getElementById('city').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            console.log(username,email,password,city,age,gender);
+            fetch("https://insta-server-9mhi.onrender.com/users/register",{
+                method:'POST',
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({username,email,password,city,age,gender})
+            })
+            .then(res=>res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+        }
+    </script>
+</body>
+</html>

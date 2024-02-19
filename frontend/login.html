@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="nav">
+        <span><a href="./dashboard.html">Dashboard</a></span><span><a href="./login.html">Login</a></span><span><a href="./signup.html">Signup</a></span><span><a href="./upload.html">uploadimage</a></span>
+    </nav>
+    <br>
+    <!-- <form onsubmit="handlesubmit"> -->
+        <input type="email" name="email" id="email" placeholder="Enter your email here...">
+        <input type="password" name="password" id="pass" placeholder="Enter your password here..">
+        <button type="submit" onclick="handlesubmit()">Login!</button>
+    <!-- </form> -->
+    <script>
+        const handlesubmit = ()=>{
+            // e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('pass').value;
+            fetch('https://insta-server-9mhi.onrender.com/users/login',{
+                method:'POST',
+                headers:{
+                    "Content-Type":"application/json",
+                },
+                body: JSON.stringify({email,password})
+            }).then((res)=>res.json())
+            .then((data)=>{
+                console.log(data);
+                localStorage.setItem('token',data.token)
+            })
+            .catch(err=>console.log(err))
+        }
+    </script>
+</body>
+</html>
