@@ -3,12 +3,14 @@ const { connection } = require('./config/db');
 require('dotenv').config();
 const cors = require('cors');
 const { userRouter } = require('./routes/user.routes');
+const { photoRouter } = require('./routes/photo.routes');
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 app.use('/users',userRouter);
+app.use('/profile',photoRouter);
 // app.use('')
 
 app.listen(process.env.port,async()=>{

@@ -52,3 +52,8 @@ photoRouter.delete('/uploads/:userID',auth,async(req,res)=>{
         res.status(500).send({"error":error})
     }
 })
+
+
+module.exports = {
+    photoRouter
+}
